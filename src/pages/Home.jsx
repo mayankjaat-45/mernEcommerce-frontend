@@ -5,7 +5,7 @@ import SubscribeSection from '../components/SubscribeSection';
 import { FaExchangeAlt, FaHeadphones } from 'react-icons/fa';
 import { MdOutlineVerified } from 'react-icons/md';
 import AddProduct from './AddProduct';
-import BestSellerProduct from '../components/BestSeller';
+import BestSellerProduct from '../components/BestSellerProduct';
 
 const Home = () => {
   return (

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import { useNavigate } from 'react-router-dom';
-import API from '../api/axios';
+
 
 const ProductList = () => {
   const navigate = useNavigate();
@@ -12,10 +12,9 @@ const ProductList = () => {
 
   useEffect(()=>{
     const fetchProducts = async () =>{
-      const API = import.meta.env.VITE_API_BASE_URL;
-    console.log(API);
+    const URL = import.meta.env.VITE_BACKEND_URL;
       try {
-        const res = await axios.get(`${API}/api/products` , {
+        const res = await axios.get(`${URL}/api/products` , {
           headers:{
             Authorization:localStorage.getItem('token')
           }
