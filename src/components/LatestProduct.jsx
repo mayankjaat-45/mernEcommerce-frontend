@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
+import API from '../api/axios';
 
 const LatestProduct = () => {
   const [products, setProducts] = useState([]);
@@ -8,7 +9,7 @@ const LatestProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`, {
+        const res = await API.get(`/api/products`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },
