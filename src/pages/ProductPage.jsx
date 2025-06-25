@@ -10,11 +10,11 @@ const ProductPage = () => {
 
     useEffect(()=>{
         const fetchProduct = async ()=>{
-          const API =import.meta.env.VITE_API_BASE_URL;
-           console.log(API);
+           const URL = 'https://mernecommerce-backend-ml42.onrender.com';
+           
             try {
                 console.log("fetching Product by id" , id);
-                const res = await API.get(`${API}/api/products/${id}`);
+                const res = await API.get(`URL/api/products/${id}`);
                 console.log("Product Fetched: ", res.data);
                 setProduct(res.data);
             } catch (error) {
