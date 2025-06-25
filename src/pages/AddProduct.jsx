@@ -9,10 +9,9 @@ const AddProduct = () => {
  const [price, setPrice] = useState(0)
 
   const handleAddProduct = (e)=>{
-     const URL = 'https://mernecommerce-backend-ml42.onrender.com';
-    
+ 
     e.preventDefault();
-     axios.post(`URL/api/products/add`, {imageURL,name,description,price})
+     API.post(`/api/products/add`, {imageURL,name,description,price})
      .then(()=>{
       setImageURL('');
       setName('');
