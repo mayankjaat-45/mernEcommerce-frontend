@@ -8,17 +8,15 @@ const LatestProduct = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-       const URL = 'https://mernecommerce-backend-ml42.onrender.com';
-   
       try {
-        const res = await axios.get(`URL/api/products`, {
+        const res = await API.get(`/api/products`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },
         });
 
-        // Show only first 5 products
-        setProducts(res.data.slice(0, 5));
+        const productList = res.data.products || res.data; // Fallback if needed
+        setProducts(productList.slice(5, 10));
       } catch (error) {
         console.log(error);
       }
@@ -29,9 +27,10 @@ const LatestProduct = () => {
 
   return (
     <>
-      {products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
+       {Array.isArray(products) &&
+        products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
     </>
   );
 };
