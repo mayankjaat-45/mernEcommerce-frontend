@@ -16,7 +16,8 @@ const BestSellerProduct = () => {
         });
 
         // Skip first 5 (used in Latest), show next 5
-        setProducts(res.data.slice(5, 10));
+       const productList = res.data.products || res.data; // Fallback if needed
+        setProducts(productList.slice(5, 10));
       } catch (error) {
         console.log(error);
       }
@@ -27,9 +28,10 @@ const BestSellerProduct = () => {
 
   return (
     <>
-      {products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
+       {Array.isArray(products) &&
+        products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
     </>
   );
 };
