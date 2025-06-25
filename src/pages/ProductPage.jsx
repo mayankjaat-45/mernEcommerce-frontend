@@ -9,10 +9,9 @@ const ProductPage = () => {
 
     useEffect(()=>{
         const fetchProduct = async ()=>{
-         const URL = import.meta.env.VITE_BACKEND_URL;
             try {
                 console.log("fetching Product by id" , id);
-                const res = await axios.get(`${URL}/api/products/${id}`);
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`);
                 console.log("Product Fetched: ", res.data);
                 setProduct(res.data);
             } catch (error) {

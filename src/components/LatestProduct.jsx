@@ -7,9 +7,8 @@ const LatestProduct = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const URL = import.meta.env.VITE_BACKEND_URL;
       try {
-        const res = await axios.get(`${URL}/api/products`, {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },

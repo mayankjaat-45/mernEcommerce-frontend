@@ -8,10 +8,8 @@ const AddProduct = () => {
  const [price, setPrice] = useState(0)
 
   const handleAddProduct = (e)=>{
-   const URL = import.meta.env.VITE_BACKEND_URL;
-    
     e.preventDefault();
-     axios.post(`${URL}/api/products/add`, {imageURL,name,description,price})
+     axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/products/add`, {imageURL,name,description,price})
      .then(()=>{
       setImageURL('');
       setName('');
