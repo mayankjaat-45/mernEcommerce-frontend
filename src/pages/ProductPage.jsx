@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductDetailed from '../components/ProductDetailed';
+import API from '../api/axios';
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -11,7 +12,7 @@ const ProductPage = () => {
         const fetchProduct = async ()=>{
             try {
                 console.log("fetching Product by id" , id);
-                const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+                const res = await API.get(`/api/products/${id}`);
                 console.log("Product Fetched: ", res.data);
                 setProduct(res.data);
             } catch (error) {

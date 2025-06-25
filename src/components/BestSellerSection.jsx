@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard';
+import API from '../api/axios';
 
 const BestSellerSection = () => {
     const [products , setProducts] = useState([]);
     useEffect(()=>{
         const fetchProducts = async() =>{
             try {
-                const res = await axios.get('http://localhost:3000/api/products' , {
+                const res = await API.get('/api/products' , {
                     headers:{
                         Authorization:localStorage.getItem('token')
                     }

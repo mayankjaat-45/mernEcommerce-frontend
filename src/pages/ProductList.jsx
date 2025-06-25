@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import { useNavigate } from 'react-router-dom';
+import API from '../api/axios';
 
 const ProductList = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const ProductList = () => {
   useEffect(()=>{
     const fetchProducts = async () =>{
       try {
-        const res = await axios.get('http://localhost:3000/api/products' , {
+        const res = await API.get('/api/products' , {
           headers:{
             Authorization:localStorage.getItem('token')
           }

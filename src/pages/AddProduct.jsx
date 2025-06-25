@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import API from '../api/axios';
 
 const AddProduct = () => {
  const [name, setName] = useState('');
@@ -9,7 +10,7 @@ const AddProduct = () => {
 
   const handleAddProduct = (e)=>{
     e.preventDefault();
-     axios.post('http://localhost:3000/api/products/add', {imageURL,name,description,price})
+     API.post('/api/products/add', {imageURL,name,description,price})
      .then(()=>{
       setImageURL('');
       setName('');
