@@ -8,10 +8,8 @@ const BestSellerProduct = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const URL = 'https://mernecommerce-backend-ml42.onrender.com';
-    console.log(URL);
       try {
-        const res = await axios.get(`URL/api/products`, {
+        const res = await API.get(`/api/products`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },
