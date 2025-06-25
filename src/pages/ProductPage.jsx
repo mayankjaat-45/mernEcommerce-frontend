@@ -10,9 +10,11 @@ const ProductPage = () => {
 
     useEffect(()=>{
         const fetchProduct = async ()=>{
+          const API =import.meta.env.VITE_API_BASE_URL;
+           console.log(API);
             try {
                 console.log("fetching Product by id" , id);
-                const res = await API.get(`/api/products/${id}`);
+                const res = await API.get(`${API}/api/products/${id}`);
                 console.log("Product Fetched: ", res.data);
                 setProduct(res.data);
             } catch (error) {

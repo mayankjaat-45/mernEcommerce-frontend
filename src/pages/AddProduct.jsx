@@ -9,8 +9,11 @@ const AddProduct = () => {
  const [price, setPrice] = useState(0)
 
   const handleAddProduct = (e)=>{
+    const API = import.meta.env.VITE_API_BASE_URL;
+    console.log(API);
+    
     e.preventDefault();
-     API.post('/api/products/add', {imageURL,name,description,price})
+     axios.post(`${API}/api/products/add`, {imageURL,name,description,price})
      .then(()=>{
       setImageURL('');
       setName('');
